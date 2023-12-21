@@ -5,10 +5,10 @@ import { CommonModule } from '@angular/common';
 import { AppComponent } from './app.component';
 import { PlotlyComponent } from './plotly/plotly.component';
 
-import * as PlotlyJS from 'plotly.js-dist-min';
-import { PlotlyModule } from 'angular-plotly.js';
-PlotlyModule.plotlyjs = PlotlyJS;
-// import { PlotlyViaWindowModule } from 'angular-plotly.js';
+// import * as PlotlyJS from 'plotly.js-dist-min';
+// import { PlotlyModule } from 'angular-plotly.js';
+// PlotlyModule.plotlyjs = PlotlyJS;
+import { PlotlyViaWindowModule } from 'angular-plotly.js';
 
 
 @NgModule({
@@ -18,9 +18,9 @@ PlotlyModule.plotlyjs = PlotlyJS;
     ],
     imports: [
         BrowserModule,
-        PlotlyModule,
+        // PlotlyModule,
         CommonModule,
-        // PlotlyViaWindowModule
+        PlotlyViaWindowModule
     ],
     providers: [],
     bootstrap: [AppComponent]
