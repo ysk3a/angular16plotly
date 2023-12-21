@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
+import * as Plotly from 'plotly.js';
 // import * as Plotly from 'plotly.js';
-// import * as Plotly from 'plotly.js';
-import { Config, Data, Layout, PlotData } from 'plotly.js-dist-min';
+import { PlotData, Config, Data, Layout } from "plotly.js"; // or whatever you need
+// import { Config, Data, Layout } from 'plotly.js-dist-min';
 // plotly.com/javascript/axes/#multi-category-axes
 @Component({
     selector: 'app-plotly',
