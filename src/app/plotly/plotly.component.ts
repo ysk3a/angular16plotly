@@ -2,20 +2,17 @@ import { Component } from '@angular/core';
 import * as Plotly from 'plotly.js';
 // import * as Plotly from 'plotly.js';
 import { PlotData, Config, Data, Layout } from "plotly.js"; // or whatever you need
+import { TraceData } from 'src/assets/data';
 // import { Config, Data, Layout } from 'plotly.js-dist-min';
 // plotly.com/javascript/axes/#multi-category-axes
+// import { TraceData";
+
 @Component({
     selector: 'app-plotly',
     templateUrl: './plotly.component.html',
     styleUrls: ['./plotly.component.scss']
 })
 export class PlotlyComponent {
-    public graph = {
-        data: [{ x: [1, 2, 3], y: [2, 5, 3], type: 'bar' }],
-        layout: { autosize: true, title: 'A Fancy Plot' },
-    };
-
-
     trace1 = {
         x: [
             ['SF Zoo', 'SF Zoo', 'SF Zoo'],
@@ -36,27 +33,36 @@ export class PlotlyComponent {
         type: 'bar' as Plotly.PlotType,
     };
     //multicategory
-    data: Partial<PlotData>[] = [this.trace1, this.trace2];
+    // data: Partial<PlotData>[] = [this.trace1, this.trace2];
+    data: Partial<PlotData | any>[] = TraceData;
+
     layout: Partial<Layout> = {
         showlegend: false,
         yaxis: {
             fixedrange: true,
+            autorange: true,
+            automargin: true,
+
         },
         xaxis: {
-            // tickson: "boundaries",
+            // tickson: "boundaries", // does not exist in plotly type!
             ticklen: 15,
             showdividers: true,
             dividercolor: 'grey',
             dividerwidth: 2,
             type: 'multicategory',
-            fixedrange: true,
+            // fixedrange: true,
+            // rangeselector: {},
+            rangeslider: {},
+            
         },
-        title: 'awesome axis title here'
+        title: 'awesome axis title here',
+        dragmode: 'pan'
     };
     // Plotly.newPlot('myDiv', data, layout);
     config: Partial<Config> = {
-        scrollZoom: false,
-        displayModeBar: false,
+        scrollZoom: true,
+        displayModeBar: true,
         editable: false,
         showLink: false,
         displaylogo: false,
